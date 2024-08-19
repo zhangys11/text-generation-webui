@@ -306,7 +306,16 @@ def install_webui():
     # Install Git and then Pytorch
     print_big_message("Installing PyTorch.")
     run_cmd(f"conda install -y -k ninja git && {install_pytorch} && python -m pip install py-cpuinfo==9.0.0", assert_success=True, environment=True)
-
+    
+    # manually install some 404 wheels from local
+    run_cmd(f"python -m pip install torch-2.2.2+cu118-cp311-cp311-win_amd64.whl")
+    run_cmd(f"python -m pip install llama_cpp_python-0.2.85+cpuavx2-cp311-cp311-win_amd64.whl") 
+    run_cmd(f"python -m pip install llama_cpp_python_cuda-0.2.85+cu121-cp311-cp311-win_amd64.whl") 
+    run_cmd(f"python -m pip install flash_attn-2.6.1+cu122torch2.2.2cxx11abiFALSE-cp311-cp311-win_amd64.whl") 
+    run_cmd(f"python -m pip install exllamav2-0.1.8+cu121.torch2.2.2-cp311-cp311-win_amd64.whl")  
+    run_cmd(f"python -m pip install autoawq-0.2.6-cp311-cp311-win_amd64.whl")  
+    run_cmd(f"python -m pip install autoawq_kernels-0.0.7-cp311-cp311-win_amd64.whl")  
+        
     if selected_gpu == "INTEL":
         # Install oneAPI dependencies via conda
         print_big_message("Installing Intel oneAPI runtime libraries.")

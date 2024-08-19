@@ -45,6 +45,8 @@ The script uses Miniconda to set up a Conda environment in the `installer_files`
 
 If you ever need to install something manually in the `installer_files` environment, you can launch an interactive shell using the cmd script: `cmd_linux.sh`, `cmd_windows.bat`, `cmd_macos.sh`, or `cmd_wsl.bat`.
 
+You may also use the local miniconda's conda.bat to activate the env. e.g., `LLM\installer_files\conda\condabin>conda.bat activate ../../env` or use any anaconda prompt to enter the env using its full path, e.g., `conda activate C:\Users\eleve\Documents\codex\py\dl\11.Generative\LLM\installer_files\env`. Then do `pip install -r requirements.txt` to install or `python server.py` to run.
+
 * There is no need to run any of those scripts (`start_`, `update_wizard_`, or `cmd_`) as admin/root.
 * To install the requirements for extensions, you can use the `extensions_reqs` script for your OS. At the end, this script will install the main requirements for the project to make sure that they take precedence in case of version conflicts.
 * For additional instructions about AMD and WSL setup, consult [the documentation](https://github.com/oobabooga/text-generation-webui/wiki).
